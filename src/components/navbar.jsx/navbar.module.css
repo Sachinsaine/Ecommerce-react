@@ -1,0 +1,18 @@
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 20px 40px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+h2 {
+  margin: 0px;
+}
+.search {
+  min-width: 25%;
+}
+h2,
+span {
+  color: var(--primary-pink);
+}
