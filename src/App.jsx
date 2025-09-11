@@ -8,13 +8,18 @@ import Login from "./components/Login/Login";
 import Dashboard from "./components/dashboard/Darshboard";
 
 function App() {
+  const [productName, setProductName] = useState("");
   const [product, setProduct] = useState([]);
-
   return (
     <BrowserRouter>
-      <Navbar product={product} setProduct={setProduct} />
+      <Navbar
+        product={product}
+        setProduct={setProduct}
+        productName={productName}
+        setProductName={setProductName}
+      />
       <Routes>
-        <Route path="/" element={<Dashboard />}>
+        <Route path="/" element={<Dashboard productName={productName} />}>
           <Route
             path="/produceDetails"
             element={<ProductList product={product} />}

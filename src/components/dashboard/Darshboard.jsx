@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-
-export default function Dashboard() {
+import styles from "./dashboard.module.css";
+import ProductList from "../productList/ProductList";
+export default function Dashboard({ productName }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function fetchData() {
       let getData = await fetch(
-        "http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline"
+        `http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline&product_type=${productName}`
       );
       let res = await getData.json();
       setData(res);
@@ -16,23 +17,19 @@ export default function Dashboard() {
     }
 
     fetchData();
-  }, []);
+  }, [productName]);
 
   return (
-    <div>
-      <h1>Hello I am from Dashboard</h1>
+    <div className={styles.dashboardContainer}>
       <Link to="produceDetails">produceDetails</Link>
       <Outlet />
       <div>
         {loading ? (
           <h1>Loading...</h1>
         ) : (
-          data.map((product) => (
-            <div>
-              <h1 key={product.id}>{product.name}</h1>
-              <img src={product.image_link} alt="" width="100" />
-            </div>
-          ))
+          <ProductList key={data.id} productData={data} />
+          // data.map((product) => (
+          // ))
         )}
       </div>
     </div>

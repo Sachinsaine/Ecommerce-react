@@ -1,13 +1,11 @@
 import Product from "../product/Product";
-
-export default function ProductList({ product }) {
+import styles from "./productlist.module.css";
+export default function ProductList({ productData }) {
   return (
-    <div>
-      <h1>Product list page</h1>
-      {product.map((product) => (
-        <div key={product.name}>
-          <Product product={product} />
-        </div>
+    <div className={styles.productlistCont}>
+      {/* <h1>Product list page</h1> */}
+      {productData.map((product) => (
+        <Product key={product.id} productItem={product} />
       ))}
     </div>
   );

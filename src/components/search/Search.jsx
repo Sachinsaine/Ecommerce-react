@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import styles from "./search.module.css";
-export default function Search({ setProduct }) {
-  const [productName, setProductName] = useState("");
-  const URL = "http://makeup-api.herokuapp.com/api/v1/products.json?brand";
+export default function Search({ setProduct, productName, setProductName }) {
+  // const [productName, setProductName] = useState("");
+  const URL =
+    "http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline&product_type";
   useEffect(() => {
     async function getProductData() {
       if (!productName) return;
