@@ -12,10 +12,16 @@ h2 {
 .search {
   min-width: 25%;
 }
-h2,
-span {
+h2 {
   color: var(--primary-pink);
 }
 a {
   text-decoration: none;
+}
+.cart {
+  font-size: 26px;
+  color: #4b5563;
+}
+small {
+  color: #4b5563;
 }

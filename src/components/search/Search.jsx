@@ -18,7 +18,7 @@ export default function Search({ setProduct, productName, setProductName }) {
     <div className={styles.container}>
       <input
         type="text"
-        placeholder="Enter your products"
+        placeholder="Search for products"
         value={productName}
         onChange={(e) => setProductName(e.target.value)}
       />

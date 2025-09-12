@@ -1,7 +1,30 @@
 import styles from "./product.module.css";
 import { FaShoppingCart } from "react-icons/fa";
 import { AiFillThunderbolt } from "react-icons/ai";
+import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
+import { useState } from "react";
 export default function Product({ productItem }) {
+  const [cartItems, setCartItems] = useState([]);
+  console.log(cartItems);
+
+  function renderStars(rating) {
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      if (rating >= i) {
+        stars.push(<FaStar key={i} className={styles.star} />);
+      } else if (rating >= i - 0.5) {
+        stars.push(<FaStarHalfAlt key={i} className={styles.star} />);
+      } else {
+        stars.push(<FaRegStar key={i} className={styles.star} />);
+      }
+    }
+    return stars;
+  }
+  renderStars();
+
+  function handleAddToCart() {
+    setCartItems((prev) => [...prev, productItem]);
+  }
   return (
     <div className={styles.productItem}>
       <div className={styles.productCard}>
@@ -11,16 +34,22 @@ export default function Product({ productItem }) {
         <p>{productItem.name}</p>
       </div>
       <p>{`${productItem.description.slice(0, 120)}...`}</p>
+      <div className={styles.starsCont}>
+        {renderStars(productItem.rating)}{" "}
+        <span className={styles.rate}>
+          {productItem.rating} <small>Write a review</small>{" "}
+        </span>
+      </div>
       <div className={styles.footerCont}>
         <span className={styles.price}>{`$${productItem.price} USD`}</span>
         <div className={styles.buttons}>
-          <button>
+          <button onClick={handleAddToCart}>
             <FaShoppingCart /> Add to cart
           </button>
-          <button>
+          {/* <button>
             {" "}
             <AiFillThunderbolt /> Buy now
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
