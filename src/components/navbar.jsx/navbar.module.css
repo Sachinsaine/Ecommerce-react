@@ -25,3 +25,16 @@ a {
 small {
   color: #4b5563;
 }
+.cartLength {
+  position: absolute;
+  background: var(--primary-pink);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 3px 8px;
+  bottom: 18px;
+  left: 16px;
+}
+.cartCont {
+  position: relative;
+}

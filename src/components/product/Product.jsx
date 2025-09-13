@@ -1,12 +1,8 @@
 import styles from "./product.module.css";
 import { FaShoppingCart } from "react-icons/fa";
-import { AiFillThunderbolt } from "react-icons/ai";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
-import { useState } from "react";
-export default function Product({ productItem }) {
-  const [cartItems, setCartItems] = useState([]);
-  console.log(cartItems);
 
+export default function Product({ productItem, setCartItems }) {
   function renderStars(rating) {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
@@ -46,10 +42,6 @@ export default function Product({ productItem }) {
           <button onClick={handleAddToCart}>
             <FaShoppingCart /> Add to cart
           </button>
-          {/* <button>
-            {" "}
-            <AiFillThunderbolt /> Buy now
-          </button> */}
         </div>
       </div>
     </div>

@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import styles from "./dashboard.module.css";
 import ProductList from "../productList/ProductList";
-export default function Dashboard({ productName }) {
+import Loader from "../loader/Loader";
+export default function Dashboard({ productName, setCartItems }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -21,13 +22,17 @@ export default function Dashboard({ productName }) {
 
   return (
     <div className={styles.dashboardContainer}>
-      <Link to="produceDetails">produceDetails</Link>
       <Outlet />
       <div>
         {loading ? (
-          <h1>Loading...</h1>
+          // <img src={loader} alt="loading" className={styles.loader} />
+          <Loader />
         ) : (
-          <ProductList key={data.id} productData={data} />
+          <ProductList
+            key={data.id}
+            productData={data}
+            setCartItems={setCartItems}
+          />
           // data.map((product) => (
           // ))
         )}

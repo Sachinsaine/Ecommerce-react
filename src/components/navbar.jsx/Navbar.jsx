@@ -8,6 +8,7 @@ export default function Navbar({
   setProduct,
   productName,
   setProductName,
+  cartItems,
 }) {
   return (
     <div className={styles.navContainer}>
@@ -25,10 +26,14 @@ export default function Navbar({
           setProductName={setProductName}
         />
       </div>
-      <div>
+      <div className={styles.cartCont}>
         {/* <Link to="/login">Login</Link> */}
-        <FaShoppingCart className={styles.cart} />
+        <Link to="/cartItems">
+          <FaShoppingCart className={styles.cart} />
+          <small className={styles.cartLength}>{cartItems.length}</small>
+        </Link>
       </div>
+      {/* <div>{console.log(cartItems)}</div> */}
     </div>
   );
 }

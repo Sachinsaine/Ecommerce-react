@@ -1,0 +1,92 @@
+.pageLoader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* full viewport height */
+  width: 100vw; /* full viewport width */
+  background: #fffafc; /* optional background */
+}
+
+.circleSpinner {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.loaderCont {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.circleSpinner div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  margin: -6px;
+  background: #e91e63;
+  border-radius: 50%;
+  animation: fade 1.2s linear infinite;
+}
+
+@keyframes fade {
+  0%,
+  39%,
+  100% {
+    opacity: 0.3;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+/* Circle placement */
+.circleSpinner div:nth-child(1) {
+  transform: rotate(0deg) translate(30px);
+  animation-delay: -1.1s;
+}
+.circleSpinner div:nth-child(2) {
+  transform: rotate(30deg) translate(30px);
+  animation-delay: -1s;
+}
+.circleSpinner div:nth-child(3) {
+  transform: rotate(60deg) translate(30px);
+  animation-delay: -0.9s;
+}
+.circleSpinner div:nth-child(4) {
+  transform: rotate(90deg) translate(30px);
+  animation-delay: -0.8s;
+}
+.circleSpinner div:nth-child(5) {
+  transform: rotate(120deg) translate(30px);
+  animation-delay: -0.7s;
+}
+.circleSpinner div:nth-child(6) {
+  transform: rotate(150deg) translate(30px);
+  animation-delay: -0.6s;
+}
+.circleSpinner div:nth-child(7) {
+  transform: rotate(180deg) translate(30px);
+  animation-delay: -0.5s;
+}
+.circleSpinner div:nth-child(8) {
+  transform: rotate(210deg) translate(30px);
+  animation-delay: -0.4s;
+}
+.circleSpinner div:nth-child(9) {
+  transform: rotate(240deg) translate(30px);
+  animation-delay: -0.3s;
+}
+.circleSpinner div:nth-child(10) {
+  transform: rotate(270deg) translate(30px);
+  animation-delay: -0.2s;
+}
+.circleSpinner div:nth-child(11) {
+  transform: rotate(300deg) translate(30px);
+  animation-delay: -0.1s;
+}
+.circleSpinner div:nth-child(12) {
+  transform: rotate(330deg) translate(30px);
+  animation-delay: 0s;
+}

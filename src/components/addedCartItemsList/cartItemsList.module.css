@@ -1,0 +1,19 @@
+.cartContainer {
+  padding: 30px 100px;
+  background-color: var(--dashboard-color);
+  min-height: 100vh;
+}
+.cont {
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background: #fff;
+}
+h1 {
+  margin: 0px;
+  padding-bottom: 10px;
+}
+.price {
+  display: flex;
+  justify-content: end;
+}

@@ -1,0 +1,17 @@
+.itemContainer {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 13% 77% 10%;
+  border-bottom: 1px solid gainsboro;
+  padding: 20px 0px 0px;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: end;
+}
+.title {
+  font-size: 18px;
+  padding-bottom: 10px;
+}
