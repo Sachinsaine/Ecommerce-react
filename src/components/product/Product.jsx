@@ -39,7 +39,7 @@ export default function Product({ productItem, setCartItems }) {
       <div className={styles.footerCont}>
         <span className={styles.price}>{`$${productItem.price} USD`}</span>
         <div className={styles.buttons}>
-          <button onClick={handleAddToCart}>
+          <button className="btnn" onClick={handleAddToCart}>
             <FaShoppingCart /> Add to cart
           </button>
         </div>

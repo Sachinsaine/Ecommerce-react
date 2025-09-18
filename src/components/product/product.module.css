@@ -50,7 +50,7 @@ p {
   width: 100%;
 }
 button {
-  background: linear-gradient(135deg, var(--primary-pink), var(--primary-rose));
+  /* background: linear-gradient(135deg, var(--primary-pink), var(--primary-rose));
   border-radius: 6px;
   padding: 10px 15px;
   display: flex;
@@ -59,7 +59,7 @@ button {
   border: none;
   font-weight: bold;
   gap: 5px;
-  cursor: pointer;
+  cursor: pointer; */
 }
 .starsCont {
   color: var(--primary-pink);

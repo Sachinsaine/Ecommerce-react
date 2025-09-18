@@ -13,3 +13,15 @@
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
+.btnn {
+  background: linear-gradient(135deg, var(--primary-pink), var(--primary-rose));
+  border-radius: 6px;
+  padding: 10px 15px;
+  display: flex;
+  color: white;
+  align-items: center;
+  border: none;
+  font-weight: bold;
+  gap: 5px;
+  cursor: pointer;
+}

@@ -14,7 +14,7 @@ export default function Navbar({
     <div className={styles.navContainer}>
       <div>
         <Link to="/">
-          <h2>BeautyVault</h2>
+          <h2 className={styles.logo}>BeautyVault</h2>
           <small>Discover Your Perfect Look</small>
         </Link>
       </div>

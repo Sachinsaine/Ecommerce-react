@@ -26,7 +26,11 @@ function App() {
         <Route
           path="/"
           element={
-            <Dashboard productName={productName} setCartItems={setCartItems} />
+            <Dashboard
+              productName={productName}
+              cartItems={cartItems}
+              setCartItems={setCartItems}
+            />
           }
         >
           <Route

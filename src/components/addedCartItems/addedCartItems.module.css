@@ -14,4 +14,45 @@
 .title {
   font-size: 18px;
   padding-bottom: 10px;
+  font-weight: 700;
+}
+.colorList {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.colorsCont {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0px 0px;
+}
+
+.colorItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.colorBox {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+.colorName {
+  font-size: 14px;
+  color: #333;
+}
+.numberOfItems {
+  display: flex;
+  align-items: center;
+  margin: 10px 0px 0px;
+  gap: 20px;
+}
+.icons {
+  border: 1px solid gainsboro;
+  border-radius: 50%;
+  padding: 5px;
 }
