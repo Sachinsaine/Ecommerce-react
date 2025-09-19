@@ -33,7 +33,6 @@ export default function Navbar({
           <small className={styles.cartLength}>{cartItems.length}</small>
         </Link>
       </div>
-      {/* <div>{console.log(cartItems)}</div> */}
     </div>
   );
 }

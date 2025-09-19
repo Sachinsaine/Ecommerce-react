@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import styles from "./dashboard.module.css";
 import ProductList from "../productList/ProductList";
 import Loader from "../loader/Loader";
-export default function Dashboard({ productName, setCartItems }) {
+export default function Dashboard({ productName, setCartItems, cartItems }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -31,6 +31,7 @@ export default function Dashboard({ productName, setCartItems }) {
           <ProductList
             key={data.id}
             productData={data}
+            cartItems={cartItems}
             setCartItems={setCartItems}
           />
           // data.map((product) => (
