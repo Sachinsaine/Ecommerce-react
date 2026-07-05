@@ -1,0 +1,341 @@
+/* All colors come from the global tokens in index.css (--ink, --accent, --sale, etc.)
+   so the navbar always matches the rest of the app. No local palette here. */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--ink);
+  font-family: var(--font-body);
+  box-shadow: 0 1px 0 var(--line-on-dark);
+}
+
+.nav * {
+  box-sizing: border-box;
+}
+
+.nav a {
+  /* color: inherit; */
+  text-decoration: none;
+}
+
+/* ---------- Main row ---------- */
+.nav__row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  grid-template-areas: "logo search actions burger";
+  align-items: center;
+  gap: 24px;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 14px 24px;
+}
+
+.nav__toggle-input {
+  display: none;
+}
+
+/* ---------- Logo ---------- */
+.nav__logo {
+  grid-area: logo;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.nav__logo-mark {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.nav__logo-word {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--on-dark);
+  letter-spacing: 0.01em;
+}
+
+.nav__logo-dot {
+  color: var(--accent);
+}
+
+/* ---------- Search ---------- */
+.nav__search {
+  grid-area: search;
+  display: flex;
+  align-items: center;
+  background: rgba(243, 246, 241, 0.08);
+  border: 1px solid var(--line-on-dark);
+  border-radius: var(--radius);
+  height: 42px;
+  padding: 0 6px 0 16px;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
+  min-width: 0;
+}
+
+.nav__search:focus-within {
+  border-color: var(--accent);
+  background: rgba(243, 246, 241, 0.12);
+}
+
+.nav__search-input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--on-dark);
+  font-family: var(--font-body);
+  font-size: 14.5px;
+}
+
+.nav__search-input::placeholder {
+  color: var(--on-dark-dim);
+}
+
+.nav__search-btn {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: var(--on-dark);
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.nav__search-btn:hover {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* ---------- Actions ---------- */
+.nav__actions {
+  grid-area: actions;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav__icon-btn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: var(--on-dark-dim);
+  transition:
+    color 0.15s ease,
+    background 0.15s ease;
+}
+
+.nav__icon-btn:hover {
+  color: var(--on-dark);
+  background: rgba(243, 246, 241, 0.08);
+}
+
+.nav__icon-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.nav__cart-badge {
+  position: absolute;
+  top: 2px;
+  right: 8px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 3px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  display: grid;
+  place-items: center;
+  line-height: 1;
+}
+
+/* ---------- Burger (mobile only) ---------- */
+.nav__burger {
+  grid-area: burger;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.nav__burger span {
+  height: 2px;
+  background: var(--on-dark);
+  border-radius: 2px;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+/* ---------- Category strip (signature: sliding mango underline) ---------- */
+.nav__categories {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--ink-2);
+  border-top: 1px solid var(--line-on-dark);
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nav__categories::-webkit-scrollbar {
+  display: none;
+}
+
+.nav__cat-link {
+  position: relative;
+  flex-shrink: 0;
+  padding: 12px 14px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--on-dark-dim);
+  transition: color 0.15s ease;
+}
+
+.nav__cat-link::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 6px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s ease;
+}
+
+.nav__cat-link:hover {
+  color: var(--on-dark);
+}
+
+.nav__cat-link:hover::after {
+  transform: scaleX(1);
+}
+
+.nav__cat-link--accent {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.nav__cat-link--sale {
+  color: var(--sale);
+  font-weight: 600;
+  margin-left: auto;
+}
+
+.nav__cat-link--sale::after {
+  background: var(--sale);
+}
+
+/* ---------- Focus visibility ---------- */
+.nav a:focus-visible,
+.nav button:focus-visible,
+.nav__burger:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .nav__row {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      "logo actions burger"
+      "search search search";
+    row-gap: 12px;
+    padding: 14px 16px;
+  }
+
+  .nav__icon-label {
+    display: none;
+  }
+
+  .nav__burger {
+    display: flex;
+  }
+
+  .nav__categories {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    overflow: visible;
+    padding: 4px 16px 10px;
+  }
+
+  .nav__cat-link {
+    padding: 10px 4px;
+    border-bottom: 1px solid var(--line-on-dark);
+  }
+
+  .nav__cat-link::after {
+    display: none;
+  }
+
+  .nav__cat-link--sale {
+    margin-left: 0;
+  }
+
+  .nav__toggle-input:checked ~ .nav__categories {
+    display: flex;
+  }
+
+  .nav__toggle-input:checked ~ .nav__burger span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .nav__toggle-input:checked ~ .nav__burger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav__toggle-input:checked ~ .nav__burger span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .nav__logo-word {
+    font-size: 19px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav * {
+    transition: none !important;
+  }
+}
