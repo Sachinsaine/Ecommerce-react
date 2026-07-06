@@ -4,8 +4,12 @@ import "./index.css";
 import styles from "./MyCart.module.css";
 
 export const MyCart = () => {
-  const { cart } = useContext(ProductContext);
+  const { cart, dispatch } = useContext(ProductContext);
   let total = cart.reduce((acc, curr) => acc + curr.price, 0);
+
+  const uniqueCart = cart.filter(
+    (item, index, self) => index === self.findIndex((p) => p.id === item.id),
+  );
 
   return (
     <div className={styles.page}>
@@ -32,24 +36,53 @@ export const MyCart = () => {
       ) : (
         <div className={styles.layout}>
           <ul className={styles.list}>
-            {cart.map((item) => (
-              <li key={item.id} className={styles.row}>
-                <img
-                  className={styles.rowImage}
-                  src={
-                    Array.isArray(item.images) ? item.images[0] : item.images
-                  }
-                  alt={item.title}
-                  width="100"
-                  height="100"
-                />
-                <div className={styles.rowBody}>
-                  <h3 className={styles.rowTitle}>{item.title}</h3>
-                  <span className={`price ${styles.rowPrice}`}>
-                    ${item.price}
-                  </span>
-                </div>
-              </li>
+            {uniqueCart.map((item) => (
+              <div>
+                <li key={item.id} className={styles.row}>
+                  <img
+                    className={styles.rowImage}
+                    src={
+                      Array.isArray(item.images) ? item.images[0] : item.images
+                    }
+                    alt={item.title}
+                    width="100"
+                    height="100"
+                  />
+                  <div className={styles.rowBody}>
+                    <h3 className={styles.rowTitle}>{item.title}</h3>
+                    <span className={`price ${styles.rowPrice}`}>
+                      ${item.price}
+                    </span>
+                  </div>
+                  <div>
+                    <button
+                      onClick={() =>
+                        dispatch({
+                          type: "decrement",
+                          payload: item.id,
+                        })
+                      }
+                    >
+                      -
+                    </button>
+
+                    <span>
+                      {cart.filter((product) => product.id === item.id).length}
+                    </span>
+
+                    <button
+                      onClick={() =>
+                        dispatch({
+                          type: "increment",
+                          payload: item,
+                        })
+                      }
+                    >
+                      +
+                    </button>
+                  </div>
+                </li>
+              </div>
             ))}
           </ul>
 

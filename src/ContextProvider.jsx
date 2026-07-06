@@ -9,13 +9,25 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "add":
       return { ...state, cart: [...state.cart, action.payload] };
-    case "increament":
-      return {...state, cart: [...state.cart, action.payload]};
-    case "decrement":
-      const index =  state.cart.findIndex((item)=> item.id === action.payload)
-      return {...state, 
-        
-      }
+
+    case "increment":
+      return {
+        ...state,
+        cart: [...state.cart, action.payload],
+      };
+
+    case "decrement": {
+      const index = state.cart.findIndex(
+        (product) => product.id === action.payload,
+      );
+
+      if (index === -1) return state;
+
+      return {
+        ...state,
+        cart: state.cart.filter((_, i) => i !== index),
+      };
+    }
     default:
       state;
   }

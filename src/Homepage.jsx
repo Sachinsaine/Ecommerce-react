@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import "./index.css";
+// import "./index.css";
 import styles from "./Homepage.module.css";
 import { ProductContext } from "./ProductContext";
 
@@ -60,6 +60,7 @@ export const Homepage = () => {
                   </span>
                   <div></div>
                   <button
+                    id="addToBtn"
                     onClick={() => dispatch({ type: "add", payload: item })}
                   >
                     Add to cart
