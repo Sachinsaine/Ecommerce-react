@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import "./index.css";
 import styles from "./Navbar.module.css";
+import { ProductContext } from "./ProductContext";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
+  const { cart } = useContext(ProductContext);
   return (
     <header className={styles.nav}>
       <div className={styles.nav__row}>
@@ -12,12 +16,12 @@ export const Navbar = () => {
           className={styles["nav__toggle-input"]}
         />
 
-        <a href="/" className={styles.nav__logo}>
+        <Link to="/" className={styles.nav__logo}>
           <span className={styles["nav__logo-mark"]}>S</span>
           <span className={styles["nav__logo-word"]}>
             Satisfy<span className={styles["nav__logo-dot"]}>.</span>
           </span>
-        </a>
+        </Link>
 
         <form className={styles.nav__search} role="search">
           <input
@@ -96,10 +100,9 @@ export const Navbar = () => {
             <span className={styles["nav__icon-label"]}>Wishlist</span>
           </a>
 
-          <a
-            href="/cart"
+          <Link
+            to="/mycart"
             className={`${styles["nav__icon-btn"]} ${styles.nav__cart}`}
-            aria-label="Cart, 3 items"
           >
             <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
               <path
@@ -113,9 +116,9 @@ export const Navbar = () => {
               <circle cx="9.5" cy="21" r="1.4" fill="currentColor" />
               <circle cx="17" cy="21" r="1.4" fill="currentColor" />
             </svg>
-            <span className={styles["nav__cart-badge"]}>3</span>
+            <span className={styles["nav__cart-badge"]}>{cart.length}</span>
             <span className={styles["nav__icon-label"]}>Cart</span>
-          </a>
+          </Link>
         </div>
 
         <label

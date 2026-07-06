@@ -1,0 +1,183 @@
+/* Colors/fonts come from the global tokens in index.css so this page
+   matches the navbar and homepage. */
+
+.page {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 40px 24px 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 16px;
+}
+
+.title {
+  margin: 0;
+}
+
+.count {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--text-dim);
+}
+
+/* ---------- Empty state ---------- */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  padding: 72px 24px;
+  background: var(--paper-dim);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-lg);
+}
+
+.emptyIcon {
+  font-size: 40px;
+  margin-bottom: 6px;
+}
+
+.emptyTitle {
+  margin: 0;
+}
+
+.emptySubtitle {
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+/* ---------- Layout: list + summary ---------- */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  align-items: start;
+  gap: 28px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--paper-dim);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px;
+  transition: border-color 0.15s ease;
+}
+
+.row:hover {
+  border-color: var(--accent);
+}
+
+.rowImage {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  flex-shrink: 0;
+}
+
+.rowBody {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.rowTitle {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14.5px;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+.rowPrice {
+  font-size: 15px;
+}
+
+/* ---------- Summary card ---------- */
+.summary {
+  position: sticky;
+  top: 88px;
+  background: var(--paper-dim);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.summaryTitle {
+  margin: 0 0 4px;
+}
+
+.summaryRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.summaryMuted {
+  color: var(--text-dim);
+  font-size: 12.5px;
+}
+
+.summaryDivider {
+  height: 1px;
+  background: var(--line);
+  margin: 4px 0;
+}
+
+.summaryTotalLabel {
+  font-weight: 600;
+}
+
+.summaryTotal {
+  font-size: 18px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 760px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .summary {
+    position: static;
+  }
+}
+
+@media (max-width: 480px) {
+  .row {
+    gap: 12px;
+  }
+
+  .rowImage {
+    width: 64px;
+    height: 64px;
+  }
+}
