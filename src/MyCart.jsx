@@ -25,6 +25,7 @@ export const MyCart = () => {
       {cart.length === 0 ? (
         <div className={styles.empty}>
           <span className={styles.emptyIcon}>🛒</span>
+
           <h2 className={styles.emptyTitle}>Your cart is empty</h2>
           <p className={styles.emptySubtitle}>
             Looks like you haven't added anything yet.

@@ -58,8 +58,8 @@ export const Navbar = () => {
         </form>
 
         <div className={styles.nav__actions}>
-          <a
-            href="/account"
+          <Link
+            to="/whishlist"
             className={styles["nav__icon-btn"]}
             aria-label="Account"
           >
@@ -81,7 +81,7 @@ export const Navbar = () => {
               />
             </svg>
             <span className={styles["nav__icon-label"]}>Account</span>
-          </a>
+          </Link>
 
           <a
             href="/wishlist"

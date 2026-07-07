@@ -4,16 +4,17 @@ import { ContextProvider } from "./ContextProvider";
 import { Homepage } from "./Homepage";
 import { Navbar } from "./Navbar";
 import { MyCart } from "./MyCart";
+import { Wishlist } from "./Wishlist";
 
 function App() {
   return (
     <BrowserRouter>
       <ContextProvider>
         <Navbar />
-
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/mycart" element={<MyCart />} />
+          <Route path="/wishlist" element={<Wishlist />} />
         </Routes>
       </ContextProvider>
     </BrowserRouter>

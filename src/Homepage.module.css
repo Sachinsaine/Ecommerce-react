@@ -186,7 +186,6 @@ button {
     color 0.15s ease;
 }
 
-/* ---------- Loading skeleton ---------- */
 .skeletonCard {
   background: var(--paper-dim);
   border: 1px solid var(--line);
