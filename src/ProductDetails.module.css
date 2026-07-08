@@ -1,0 +1,80 @@
+/* Colors/fonts come from the global tokens in index.css so this page
+   matches the navbar, homepage, and cart. */
+
+.page {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 40px 24px 72px;
+}
+
+.heading {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 24px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 440px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.imageWrap {
+  background: var(--paper-dim);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(24px, 3vw, 32px);
+}
+
+.price {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--accent-ink);
+  background: var(--accent-soft);
+  display: inline-block;
+  width: fit-content;
+  padding: 6px 14px;
+  border-radius: var(--radius);
+}
+
+.description {
+  color: var(--text-dim);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.loading {
+  padding: 80px 24px;
+  text-align: center;
+  color: var(--text-dim);
+}
+
+@media (max-width: 760px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}

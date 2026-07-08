@@ -37,6 +37,7 @@ export const ContextProvider = ({ children }) => {
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
   const [state, dispatch] = useReducer(reducer, initialValue);
+  const [input, setInput] = useState("");
 
   useEffect(() => {
     async function getProducts() {
@@ -54,7 +55,15 @@ export const ContextProvider = ({ children }) => {
   }, []);
   return (
     <ProductContext.Provider
-      value={{ product, setProduct, loading, cart: state.cart, dispatch }}
+      value={{
+        product,
+        setProduct,
+        loading,
+        cart: state.cart,
+        dispatch,
+        input,
+        setInput,
+      }}
     >
       {children}
     </ProductContext.Provider>

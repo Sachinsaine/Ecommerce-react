@@ -5,7 +5,7 @@ import { ProductContext } from "./ProductContext";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
-  const { cart } = useContext(ProductContext);
+  const { cart, input, setInput } = useContext(ProductContext);
   return (
     <header className={styles.nav}>
       <div className={styles.nav__row}>
@@ -29,6 +29,8 @@ export const Navbar = () => {
             type="search"
             placeholder="Search products, brands, categories…"
             aria-label="Search products"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
           />
           <button
             className={styles["nav__search-btn"]}

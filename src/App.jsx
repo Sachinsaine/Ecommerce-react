@@ -5,6 +5,7 @@ import { Homepage } from "./Homepage";
 import { Navbar } from "./Navbar";
 import { MyCart } from "./MyCart";
 import { Wishlist } from "./Wishlist";
+import { ProductDetails } from "./ProductDetails";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/mycart" element={<MyCart />} />
           <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/productDetails/:id" element={<ProductDetails />} />
         </Routes>
       </ContextProvider>
     </BrowserRouter>

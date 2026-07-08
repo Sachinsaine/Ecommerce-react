@@ -2,10 +2,11 @@ import { useContext } from "react";
 // import "./index.css";
 import styles from "./Homepage.module.css";
 import { ProductContext } from "./ProductContext";
+import { Link } from "react-router-dom";
 
 export const Homepage = () => {
-  const { product, loading, dispatch } = useContext(ProductContext);
-
+  const { product, loading, dispatch, input } = useContext(ProductContext);
+  // const filterProducts = product.filter((food) => food.name.includes(input));
   return (
     <div className={styles.page}>
       <section className={styles.hero}>
@@ -46,12 +47,14 @@ export const Homepage = () => {
             {product.map((item) => (
               <article key={item.id} className={styles.card}>
                 <div className={styles.cardImageWrap}>
-                  <img
-                    className={styles.cardImage}
-                    src={item.images[0]}
-                    alt={item.title}
-                    loading="lazy"
-                  />
+                  <Link to={`/productDetails/${item.id}`}>
+                    <img
+                      className={styles.cardImage}
+                      src={item.images[0]}
+                      alt={item.title}
+                      loading="lazy"
+                    />
+                  </Link>
                 </div>
                 <div className={styles.cardBody}>
                   <h3 className={styles.cardTitle}>{item.title}</h3>
