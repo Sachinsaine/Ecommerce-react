@@ -3,10 +3,13 @@ import { useContext } from "react";
 import styles from "./Homepage.module.css";
 import { ProductContext } from "./ProductContext";
 import { Link } from "react-router-dom";
+import { IoIosHeartEmpty } from "react-icons/io";
 
 export const Homepage = () => {
-  const { product, loading, dispatch, input } = useContext(ProductContext);
+  const { product, loading, dispatch, setWishlist } =
+    useContext(ProductContext);
   // const filterProducts = product.filter((food) => food.name.includes(input));
+
   return (
     <div className={styles.page}>
       <section className={styles.hero}>
@@ -61,7 +64,11 @@ export const Homepage = () => {
                   <span className={`price ${styles.cardPrice}`}>
                     ${item.price}
                   </span>
-                  <div></div>
+                  <div>
+                    <IoIosHeartEmpty
+                      onClick={() => setWishlist((prev) => [...prev, item])}
+                    />
+                  </div>
                   <button
                     id="addToBtn"
                     onClick={() => dispatch({ type: "add", payload: item })}

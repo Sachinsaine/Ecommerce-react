@@ -38,6 +38,7 @@ export const ContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [state, dispatch] = useReducer(reducer, initialValue);
   const [input, setInput] = useState("");
+  const [wishlist, setWishlist] = useState([]);
 
   useEffect(() => {
     async function getProducts() {
@@ -63,6 +64,8 @@ export const ContextProvider = ({ children }) => {
         dispatch,
         input,
         setInput,
+        wishlist,
+        setWishlist,
       }}
     >
       {children}
