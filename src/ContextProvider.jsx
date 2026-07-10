@@ -28,6 +28,7 @@ const reducer = (state, action) => {
         cart: state.cart.filter((_, i) => i !== index),
       };
     }
+
     default:
       state;
   }

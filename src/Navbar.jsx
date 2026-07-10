@@ -60,11 +60,7 @@ export const Navbar = () => {
         </form>
 
         <div className={styles.nav__actions}>
-          <Link
-            to="/whishlist"
-            className={styles["nav__icon-btn"]}
-            aria-label="Account"
-          >
+          <Link to="/" className={styles["nav__icon-btn"]} aria-label="Account">
             <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
               <circle
                 cx="12"
@@ -85,8 +81,8 @@ export const Navbar = () => {
             <span className={styles["nav__icon-label"]}>Account</span>
           </Link>
 
-          <a
-            href="/wishlist"
+          <Link
+            to="/wishlist"
             className={styles["nav__icon-btn"]}
             aria-label="Wishlist"
           >
@@ -100,7 +96,7 @@ export const Navbar = () => {
               />
             </svg>
             <span className={styles["nav__icon-label"]}>Wishlist</span>
-          </a>
+          </Link>
 
           <Link
             to="/mycart"

@@ -163,6 +163,12 @@
   font-size: 15px;
 }
 
+.priceCont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 button {
   cursor: pointer;
   /* background: none; */
@@ -224,6 +230,21 @@ button {
 .skeletonLineShort {
   width: 40%;
   margin-top: 10px;
+}
+
+.wish {
+  font-size: 22px;
+  color: #999;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.wish:hover {
+  transform: scale(1.15);
+}
+
+.active {
+  color: red;
 }
 
 @keyframes shimmer {

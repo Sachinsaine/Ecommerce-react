@@ -3,11 +3,13 @@ import { useContext } from "react";
 import styles from "./Homepage.module.css";
 import { ProductContext } from "./ProductContext";
 import { Link } from "react-router-dom";
-import { IoIosHeartEmpty } from "react-icons/io";
+import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
+import toast from "react-hot-toast";
 
 export const Homepage = () => {
-  const { product, loading, dispatch, setWishlist } =
+  const { product, loading, dispatch, setWishlist, wishlist } =
     useContext(ProductContext);
+
   // const filterProducts = product.filter((food) => food.name.includes(input));
 
   return (
@@ -47,37 +49,65 @@ export const Homepage = () => {
           <p className={styles.empty}>No products to show right now.</p>
         ) : (
           <div className={styles.grid}>
-            {product.map((item) => (
-              <article key={item.id} className={styles.card}>
-                <div className={styles.cardImageWrap}>
-                  <Link to={`/productDetails/${item.id}`}>
-                    <img
-                      className={styles.cardImage}
-                      src={item.images[0]}
-                      alt={item.title}
-                      loading="lazy"
-                    />
-                  </Link>
-                </div>
-                <div className={styles.cardBody}>
-                  <h3 className={styles.cardTitle}>{item.title}</h3>
-                  <span className={`price ${styles.cardPrice}`}>
-                    ${item.price}
-                  </span>
-                  <div>
-                    <IoIosHeartEmpty
-                      onClick={() => setWishlist((prev) => [...prev, item])}
-                    />
+            {product.map((item) => {
+              const isWishlisted = wishlist.some((wish) => wish.id === item.id);
+              return (
+                <article key={item.id} className={styles.card}>
+                  <div className={styles.cardImageWrap}>
+                    <Link to={`/productDetails/${item.id}`}>
+                      <img
+                        className={styles.cardImage}
+                        src={item.images[0]}
+                        alt={item.title}
+                        loading="lazy"
+                      />
+                    </Link>
                   </div>
-                  <button
-                    id="addToBtn"
-                    onClick={() => dispatch({ type: "add", payload: item })}
-                  >
-                    Add to cart
-                  </button>
-                </div>
-              </article>
-            ))}
+                  <div className={styles.cardBody}>
+                    <h3 className={styles.cardTitle}>{item.title}</h3>
+                    <div className={styles.priceCont}>
+                      <span className={`price ${styles.cardPrice}`}>
+                        ${item.price}
+                      </span>
+                      <div>
+                        {isWishlisted ? (
+                          <IoIosHeart
+                            className={`${styles.wish} ${styles.active}`}
+                            onClick={() => {
+                              setWishlist((prev) =>
+                                prev.filter(
+                                  (product) => product.id !== item.id,
+                                ),
+                              );
+                              toast.info("Removed from wishlist");
+                            }}
+                          />
+                        ) : (
+                          <IoIosHeartEmpty
+                            className={styles.wish}
+                            onClick={() => {
+                              setWishlist((prev) => [...prev, item]);
+                              toast.success("Added to wishlist");
+                            }}
+                          />
+                        )}
+                      </div>
+                    </div>
+                    <button
+                      id="addToBtn"
+                      onClick={() =>
+                        dispatch(
+                          { type: "add", payload: item },
+                          toast.success("Item has added"),
+                        )
+                      }
+                    >
+                      Add to cart
+                    </button>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         )}
       </section>
