@@ -12,7 +12,7 @@ export const Wishlist = () => {
   const handleRemove = (id) => {
     let filterWishList = wishlist.filter((item) => item.id !== id);
     setWishlist(filterWishList);
-    toast.success("Removed from wishlist");
+    toast.error("Item has removed");
   };
 
   return (
@@ -62,7 +62,13 @@ export const Wishlist = () => {
                   <p className={styles.cardDescription}>{item.description}</p>
                 </div>
               </Link>
-              <button onClick={() => handleRemove(item.id)}>Remove</button>
+              <button
+                onClick={() => {
+                  handleRemove(item.id);
+                }}
+              >
+                Remove
+              </button>
             </article>
           ))}
         </div>
