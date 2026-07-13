@@ -1,5 +1,4 @@
 import { useContext } from "react";
-// import "./index.css";
 import styles from "./Homepage.module.css";
 import { ProductContext } from "./ProductContext";
 import { Link } from "react-router-dom";
@@ -7,10 +6,14 @@ import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import toast from "react-hot-toast";
 
 export const Homepage = () => {
-  const { product, loading, dispatch, setWishlist, wishlist } =
+  const { product, loading, dispatch, setWishlist, wishlist, input } =
     useContext(ProductContext);
 
-  // const filterProducts = product.filter((food) => food.name.includes(input));
+  const filterProducts = product.filter((item) =>
+    input === ""
+      ? true
+      : item.title.toLowerCase().includes(input.toLowerCase()),
+  );
 
   return (
     <div className={styles.page}>
@@ -49,7 +52,7 @@ export const Homepage = () => {
           <p className={styles.empty}>No products to show right now.</p>
         ) : (
           <div className={styles.grid}>
-            {product.map((item) => {
+            {filterProducts.map((item) => {
               const isWishlisted = wishlist.some((wish) => wish.id === item.id);
               return (
                 <article key={item.id} className={styles.card}>

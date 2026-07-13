@@ -9,20 +9,12 @@ export const Navbar = () => {
   return (
     <header className={styles.nav}>
       <div className={styles.nav__row}>
-        {/* Mobile menu toggle — pure CSS checkbox hack, no JS */}
-        <input
-          type="checkbox"
-          id="nav-toggle"
-          className={styles["nav__toggle-input"]}
-        />
-
         <Link to="/" className={styles.nav__logo}>
           <span className={styles["nav__logo-mark"]}>S</span>
           <span className={styles["nav__logo-word"]}>
             Satisfy<span className={styles["nav__logo-dot"]}>.</span>
           </span>
         </Link>
-
         <form className={styles.nav__search} role="search">
           <input
             className={styles["nav__search-input"]}
@@ -58,7 +50,6 @@ export const Navbar = () => {
             </svg>
           </button>
         </form>
-
         <div className={styles.nav__actions}>
           <Link to="/" className={styles["nav__icon-btn"]} aria-label="Account">
             <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
@@ -118,47 +109,6 @@ export const Navbar = () => {
             <span className={styles["nav__icon-label"]}>Cart</span>
           </Link>
         </div>
-
-        <label
-          htmlFor="nav-toggle"
-          className={styles.nav__burger}
-          aria-label="Open menu"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </label>
-
-        {/* Category strip — collapses into the mobile drawer via CSS */}
-        {/* <nav className={styles.nav__categories} aria-label="Product categories">
-          <a
-            href="/category/new"
-            className={`${styles["nav__cat-link"]} ${styles["nav__cat-link--accent"]}`}
-          >
-            New In
-          </a>
-          <a href="/category/women" className={styles["nav__cat-link"]}>
-            Women
-          </a>
-          <a href="/category/men" className={styles["nav__cat-link"]}>
-            Men
-          </a>
-          <a href="/category/electronics" className={styles["nav__cat-link"]}>
-            Electronics
-          </a>
-          <a href="/category/home" className={styles["nav__cat-link"]}>
-            Home &amp; Living
-          </a>
-          <a href="/category/beauty" className={styles["nav__cat-link"]}>
-            Beauty
-          </a>
-          <a
-            href="/sale"
-            className={`${styles["nav__cat-link"]} ${styles["nav__cat-link--sale"]}`}
-          >
-            Sale
-          </a>
-        </nav> */}
       </div>
     </header>
   );
