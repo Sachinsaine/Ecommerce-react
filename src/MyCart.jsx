@@ -1,11 +1,14 @@
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import { ProductContext } from "./ProductContext";
 import "./index.css";
 import styles from "./MyCart.module.css";
 
 export const MyCart = () => {
   const { cart, dispatch } = useContext(ProductContext);
-  let total = cart.reduce((acc, curr) => acc + curr.price, 0);
+
+  let total = useMemo(() => {
+    return cart.reduce((acc, curr) => acc + curr.price, 0);
+  }, [cart]);
 
   const uniqueCart = cart.filter(
     (item, index, self) => index === self.findIndex((p) => p.id === item.id),
