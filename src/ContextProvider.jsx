@@ -30,7 +30,7 @@ const reducer = (state, action) => {
     }
 
     default:
-      state;
+      return state;
   }
 };
 
