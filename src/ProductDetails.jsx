@@ -81,7 +81,9 @@ export const ProductDetails = () => {
           <div className={styles.description}>
             Category: {item.category.name}
           </div>
-          <div className={styles.description}>{item.description}</div>
+          <div className={styles.description}>
+            Description: {item.description}
+          </div>
         </div>
       </div>
     </div>
